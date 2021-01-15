@@ -1,8 +1,9 @@
 all: \
-	append_node.o \
-	delete_node.o \
-	list_back.o \
-	list_front.o
+	DN_alloc.o 	\
+	DN_ends.o 	\
+	DN_free.o 	\
+	DN_simple.o \
+	DN_size.o
 
 %.o: %.c
 	gcc -c $(subst .o,.c, $@)
