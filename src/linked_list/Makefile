@@ -1,3 +1,6 @@
+#lib: all
+#	ld *.o -o linked_list.
+
 all: \
 	DN_alloc.o 	\
 	DN_ends.o 	\

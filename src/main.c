@@ -30,14 +30,11 @@ void forwards_iteration( Data_node* list )
   }
 }
 
-void backwards_iteration( Data_node* list )
+void backwards_recursion( Data_node* list )
 {
-  Data_node* curr = DN_back( list );
-  while( curr )
-  {
-    printf( "  %s\n", (char*) DN_getData( curr ) );
-    curr = DN_prev( curr );
-  }
+  if( !list ) return;
+  printf( "  %s\n", (char*) DN_getData( list ) );
+  backwards_recursion( DN_prev( list ) );
 }
 
 int main( int argc, char** argv )
@@ -52,7 +49,7 @@ int main( int argc, char** argv )
   forwards_iteration( list );
 
   puts( "Now backwards..." );
-  backwards_iteration( list );
+  backwards_recursion( DN_back( list ) );
 
   puts( "All done, lets free the whole list." );
   DN_freeAll( list );
