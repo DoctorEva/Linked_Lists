@@ -6,9 +6,10 @@ void* DN_getData( Data_node* node )
   if( !node )
   {
     fprintf( stderr, "DN_getData must be provided a node.\n" );
-    return NULL; 
+    return NULL;
   }
-  return ( node + sizeof( Data_node ) );
+  void* start = (void*) node;
+  return ( start + sizeof( Data_node ) );
 }
 Data_node* DN_next( Data_node* node )
 {
